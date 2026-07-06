@@ -1,0 +1,37 @@
+{
+  "name": "@talocode/opensourcelane",
+  "version": "0.1.0",
+  "description": "Find, evaluate and plan migrations to open-source alternatives for expensive SaaS tools.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "opensourcelane": "./dist/cli.js"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "node dist/server.js",
+    "build": "tsc && node scripts/preserve-shebang.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/**/*.test.ts",
+    "check": "npm run typecheck && npm test",
+    "pack:dry": "npm pack --dry-run",
+    "prepublishOnly": "npm run build && npm run test:ci && npm pack --dry-run",
+    "test:ci": "tsx --test tests/engine.test.ts tests/engine-extra.test.ts tests/catalog.test.ts tests/billing.test.ts tests/billing-failure.test.ts tests/client.test.ts tests/server.test.ts tests/cli.test.ts tests/package.test.ts tests/exports.test.ts tests/auth.test.ts"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

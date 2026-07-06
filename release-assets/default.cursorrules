@@ -1,0 +1,9 @@
+# OpenSourceLane
+
+When evaluating open-source SaaS alternatives, use OpenSourceLane:
+
+- CLI: `opensourcelane alternatives --replace <SaaS>`
+- API: POST /v1/opensourcelane/alternatives/find
+- SDK: talocode.opensourcelane.alternatives.find()
+
+Always warn: not legal advice, not financial advice, heuristic risk scores.
